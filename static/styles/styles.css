@@ -1,0 +1,26 @@
+body header .ms-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+body header input.form-control {
+  outline: none;
+  box-shadow: none !important;
+}
+body main {
+  background-color: rgba(250, 235, 215, 0.5);
+  width: 70vw;
+  max-width: 80%;
+  min-width: 90vw;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+body main h1,
+body main h2,
+body main h3,
+body main h4,
+body main h5,
+body main h6 {
+  text-align: center;
+}/*# sourceMappingURL=styles.css.map */

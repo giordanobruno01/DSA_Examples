@@ -1,0 +1,32 @@
+body {
+  header {
+    .ms-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    input.form-control {
+      outline: none;
+      box-shadow: none !important;
+    }
+  }
+  main {
+    background-color: rgba(250, 235, 215, 0.5);
+    width: 70vw;
+    max-width: 80%;
+    min-width: 90vw;
+    margin: 10px auto;
+    padding: 20px;
+    // border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-align: center;
+    }
+  }
+}
