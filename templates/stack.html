@@ -2,9 +2,22 @@
 
 {% block content %}
 <h1>Stack</h1>
-<div class="hide">
-    
+
+<form  method="get">
+<div class="top-button">
+    <button value="test1" id="test1" onclick="showDiv('test1')">Test 1</button>
+    <button value="test2" id="test2">Test 2</button>
+    <button value="test3" id="test3">Test 3</button>
+    <button value="test4" id="test4">Test 4</button>
 </div>
+<div id="ex1" class="dissapear"></div>
+<div id="ex2" class="dissapear"></div>
+<div id="ex3" class="dissapear"></div>
+<div id="ex4" class="dissapear"></div>
+
+
+
+</form>
 
 
 {% endblock %}

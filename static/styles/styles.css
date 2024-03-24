@@ -23,4 +23,16 @@ body main h4,
 body main h5,
 body main h6 {
   text-align: center;
+}
+body main form .top-button button {
+  width: 24%;
+}
+body main form .dissapear {
+  display: none;
+  margin-top: 20px;
+  width: 90%;
+  height: 800px;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
 }/*# sourceMappingURL=styles.css.map */
