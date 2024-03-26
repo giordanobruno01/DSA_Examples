@@ -3,11 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 main = Flask(__name__) 
 
-@main.route("/")
+@main.route("/") 
 def index():
     return render_template("index.html") 
 
-@main.route("/linkedlist") 
+@main.route("/linkedlist")  
 def linkedList(): 
     return render_template("linkedlist.html")
 
