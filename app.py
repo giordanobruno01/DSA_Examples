@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash, Flask
+
 from flask_sqlalchemy import SQLAlchemy
 
 main = Flask(__name__) 
@@ -29,6 +30,8 @@ def stack():
 
 @main.route("/stack" , methods = ["POST" ])
 def stack_post():
+
+    javaFile = request.files["javaFile"]
     
     return url_for("stack")
 

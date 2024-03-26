@@ -1,31 +1,38 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <h1>Stack</h1>
 
-<form  method="post">
-<div class="top-button">
-    <button value="test1" id="test1" onclick="showDiv('test1')" type="button">Test 1</button>
-    <button value="test2" id="test2" onclick="showDiv('test2')" type="button">Test 2</button>
-    <button value="test3" id="test3" onclick="showDiv('test3')" type="button">Test 3</button>
-    <button value="test4" id="test4" onclick="showDiv('test4')" type="button">Test 4</button>
-</div>
+<form method="post">
+  <div class="top-button">
+    <button value="test1" id="test1" onclick="showDiv('test1')" type="button">
+      Test 1
+    </button>
+    <button value="test2" id="test2" onclick="showDiv('test2')" type="button">
+      Test 2
+    </button>
+    <button value="test3" id="test3" onclick="showDiv('test3')" type="button">
+      Test 3
+    </button>
+    <button value="test4" id="test4" onclick="showDiv('test4')" type="button">
+      Test 4
+    </button>
+  </div>
+</form>
 <div id="ex1" class="dissapear">
-    <h1>div 1</h1>
+  <h1>Check for Bracktes</h1>
+  <form action="/stack" method="post">
+      <input type="file" value="" id="javaFile" accept=".java" name="javaFile"/>
+      
+      <button type="submit">Send</button>
+    </form>
 </div>
 <div id="ex2" class="dissapear">
-    <h1> div 2</h1>
+  <h1>div 2</h1>
 </div>
 <div id="ex3" class="dissapear">
-    <h1> div 3</h1>
+  <h1>div 3</h1>
 </div>
 <div id="ex4" class="dissapear">
-    <h1>div 4</h1>
+  <h1>div 4</h1>
 </div>
-
-
-
-</form>
-
 
 {% endblock %}
