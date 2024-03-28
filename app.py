@@ -32,6 +32,8 @@ def stack():
 def stack_post():
 
     javaFile = request.files["javaFile"]
+
+    javaFile
     
     return url_for("stack")
 
