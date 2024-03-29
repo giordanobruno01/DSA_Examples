@@ -19,11 +19,11 @@
 </form>
 <div id="ex1" class="dissapear">
   <h1>Check for Bracktes</h1>
-  <form action="/stack" method="post">
-      <input type="file" value="" id="javaFile" accept=".java" name="javaFile"/>
-      
-      <button type="submit">Send</button>
-    </form>
+  <form action="/stack" method="post" enctype="multipart/form-data">
+    <input type="file" value="" id="javaFile" accept=".java" name="javaFile" />
+    <button type="submit">Send</button>
+  </form>
+  <p>{{ text }}</p>
 </div>
 <div id="ex2" class="dissapear">
   <h1>div 2</h1>

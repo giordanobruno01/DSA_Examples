@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash, Flask
-
+import os
+from stackFile import stackClass
 from flask_sqlalchemy import SQLAlchemy
 
 main = Flask(__name__) 
-
+main.config["UPLOAD_FOLDER"] = "files"
 @main.route("/") 
 def index():
     return render_template("index.html") 
@@ -28,16 +29,18 @@ def queue_post():
 def stack():
     return render_template("stack.html")
 
-@main.route("/stack" , methods = ["POST" ])
+@main.route("/stack" , methods = ["POST"])
 def stack_post():
 
     javaFile = request.files["javaFile"]
-
-    javaFile
+    javaFile.save(os.path.join(main.config['UPLOAD_FOLDER'],javaFile.filename))
+    j = open(os.path.join(main.config['UPLOAD_FOLDER'],javaFile.filename),"r")
+    code = j.read()
+    obj = stackClass(code)
+    return render_template("stack.html", text = obj.display())
     
-    return url_for("stack")
-
-
+    
+    # return url_for("stack", text = javaFile.read())
 if __name__ == "__main__": 
     main.run(debug=True) 
 
