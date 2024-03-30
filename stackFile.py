@@ -8,22 +8,20 @@ class stackClass:
         self.line = 0
 
     def processor(self, codeLine, line):
-
         self.line = line
         brackets = ["[", "]","{","}","(",")"]
         for i in codeLine:
             if i in brackets:
-                self.operation(i)
+                self.operation(i, codeLine)
         
         
-    def operation(self, brack):
+    def operation(self, brack, codeLine):
         
         openingBrackets =["[", "{", "("]
         brackets = {"[":"]" , "{":"}" , "(":")"}
         if brack in openingBrackets:
             self.stack.append(brack)
             self.top +=1
-
         else:
             # top = {
             # brack = }
@@ -31,13 +29,13 @@ class stackClass:
                 self.stack.pop()
                 self.top -=1
             else:
-                self.message =  + ""
+                self.message = f"Error at line number {self.line} \n {codeLine}"
                 
 
         
 
     def display(self):
-        pass
+        return self.message
 
 
 

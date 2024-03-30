@@ -39,16 +39,13 @@ def stack_post():
     line = 1
     while True:
         code = j.readline()
-        if code == None:
+        if code == '':
             break
 
         obj.processor(code, line)
         line +=1
-
-
     
-    
-    return render_template("stack.html", text = code)
+    return render_template("stack.html", text = obj.display())
      
     
     # return url_for("stack", text = javaFile.read())
