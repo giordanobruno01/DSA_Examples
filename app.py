@@ -4,7 +4,8 @@ from stackFile import stackClass
 from flask_sqlalchemy import SQLAlchemy
 
 main = Flask(__name__) 
-main.config["UPLOAD_FOLDER"] = "files"
+main.config["UPLOAD_FOLDER"] = "files" 
+obj = stackClass()
 @main.route("/") 
 def index():
     return render_template("index.html") 
@@ -25,17 +26,17 @@ def queue():
 def queue_post():
     return url_for("queue")
 
-@main.route("/stack") 
+@main.route("/stack", methods = ["get"]) 
 def stack():
-    return render_template("stack.html")
+    return render_template("stack.html", text = obj.display())
 
-@main.route("/stack" , methods = ["POST"])
+@main.route("/stack" , methods = ["POST", "get"])
 def stack_post():
 
     javaFile = request.files["javaFile"]
     javaFile.save(os.path.join(main.config['UPLOAD_FOLDER'],javaFile.filename))
     j = open(os.path.join(main.config['UPLOAD_FOLDER'],javaFile.filename),"r")
-    obj = stackClass()
+   
     line = 1
     while True:
         code = j.readline()
@@ -44,8 +45,9 @@ def stack_post():
 
         obj.processor(code, line)
         line +=1
-    
-    return render_template("stack.html", text = obj.display())
+    global text 
+    text = obj.display()
+    return url_for("stack")
      
     
     # return url_for("stack", text = javaFile.read())
