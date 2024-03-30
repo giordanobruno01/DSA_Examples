@@ -21,7 +21,7 @@ body {
     // border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: 88vh;
+    min-height: 88vh;
 
     h1,
     h2,
@@ -42,7 +42,7 @@ body {
       display: none;
       margin-top: 20px;
       width: 97%;
-      height: 80%;
+      min-height: 80%;
       border: 1px solid black;
       margin-left: auto;
       margin-right: auto;

@@ -35,10 +35,21 @@ def stack_post():
     javaFile = request.files["javaFile"]
     javaFile.save(os.path.join(main.config['UPLOAD_FOLDER'],javaFile.filename))
     j = open(os.path.join(main.config['UPLOAD_FOLDER'],javaFile.filename),"r")
-    code = j.read()
-    obj = stackClass(code)
-    return render_template("stack.html", text = obj.display())
+    obj = stackClass()
+    line = 1
+    while True:
+        code = j.readline()
+        if code == None:
+            break
+
+        obj.processor(code, line)
+        line +=1
+
+
     
+    
+    return render_template("stack.html", text = code)
+     
     
     # return url_for("stack", text = javaFile.read())
 if __name__ == "__main__": 
