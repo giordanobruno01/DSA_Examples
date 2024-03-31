@@ -1,6 +1,6 @@
 public class ItemChecker {
-    ItemChecker( {
+    ItemChecker {
         userText = "";
         checkedText = false;
-    }
+    
 }

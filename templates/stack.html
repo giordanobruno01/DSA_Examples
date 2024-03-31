@@ -17,13 +17,14 @@
     </button>
   </div>
 </form>
+<div class="dissapear" style="display: block;"><h3>{{ text }}</h3></div>
 <div id="ex1" class="dissapear">
   <h1>Check for Bracktes</h1>
   <form action="/stack" method="post" enctype="multipart/form-data">
     <input type="file" value="" id="javaFile" accept=".java" name="javaFile" />
-    <button type="submit">Send</button>
+    <input type="submit" value="Send" />
+    <!-- <button type="submit">Send</button> -->
   </form>
-  <p>{{ text }}</p>
 </div>
 <div id="ex2" class="dissapear">
   <h1>div 2</h1>

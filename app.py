@@ -26,9 +26,9 @@ def queue():
 def queue_post():
     return url_for("queue")
 
-@main.route("/stack", methods = ["get"]) 
+@main.route("/stack") 
 def stack():
-    return render_template("stack.html", text = obj.display())
+    return render_template("stack.html")
 
 @main.route("/stack" , methods = ["POST", "get"])
 def stack_post():
@@ -36,19 +36,19 @@ def stack_post():
     javaFile = request.files["javaFile"]
     javaFile.save(os.path.join(main.config['UPLOAD_FOLDER'],javaFile.filename))
     j = open(os.path.join(main.config['UPLOAD_FOLDER'],javaFile.filename),"r")
-   
+    
     line = 1
-    while True:
+    while obj.display() == "No error found":
         code = j.readline()
-        if code == '':
+        if code == '': 
             break
-
         obj.processor(code, line)
         line +=1
-    global text 
-    text = obj.display()
-    return url_for("stack")
-     
+
+    if len(obj.stack)!=0 and obj.display()=="No error found":
+        return render_template("stack.html", text = f"This bracket '{obj.stack[obj.top][0]}' at line {obj.stack[obj.top][2]} with the code  '{obj.stack[obj.top][1]}' is not being closed correctly")
+    else:
+        return render_template("stack.html", text = obj.display())
     
     # return url_for("stack", text = javaFile.read())
 if __name__ == "__main__": 
