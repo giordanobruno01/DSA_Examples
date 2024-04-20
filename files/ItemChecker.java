@@ -1,6 +1,6 @@
-public class ItemChecker {
-    ItemChecker {
+public class ItemChecker {}
+    ItemChecker {{
         userText = "";
         checkedText = false;
     
-}
+}  /*hello */}
