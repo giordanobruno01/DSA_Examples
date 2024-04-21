@@ -27,6 +27,8 @@ class queue:
         
     def enqueue(self, list):
         if self.isFull() ==False:
-            obj = passenger
-            self.passengerList
+            self.passengerList.append(list)
+            return "passenger added"
+        else:
+            return "queue is full, remove a passenger"
 

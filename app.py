@@ -32,8 +32,8 @@ def queue_post():
     destination = request.form.get("destination")
     weight = request.form.get("weight")
     pasgr = passenger(name=name, origin=origin, destination=destination, weight=weight)
-    queueObj.enqueue(pasgr)
-    return render_template("queue.html", passagerList = queueObj.passengerList)
+    message = queueObj.enqueue(pasgr)
+    return render_template("queue.html", passagerList = queueObj.passengerList, message = message)
 
 @main.route("/stack") 
 def stack():

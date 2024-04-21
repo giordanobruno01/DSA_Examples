@@ -1,4 +1,10 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+<!-- <script>
+  function myFunction() {
+    alert({{message}});
+  }
+</script> -->
+{% block content %}
 <h1>Queue</h1>
 
 <div id="queue">
@@ -6,7 +12,7 @@
   <table>
     <tr>
       {% for item in passagerList %}
-      <td>{{ item }}</td>
+      <td>{{ item.getName() }}</td>
       {% endfor%}
     </tr>
   </table>
@@ -15,10 +21,10 @@
 <div id="add">
   <form action="/queue" method="post">
     <input type="text" name="name" placeholder="name" />
-    <input type="text" name="origin" placeholder="origin">
-    <input type="text" name="destination" placeholder="destination">
-    <input type="text" name="weight" placeholder="weight">
-    <input type="submit" value="Check-in" />
+    <input type="text" name="origin" placeholder="origin" />
+    <input type="text" name="destination" placeholder="destination" />
+    <input type="text" name="weight" placeholder="weight" />
+    <input type="submit" value="Check-in" onclick="myFunction()" />
   </form>
 </div>
 <div id="remove">
