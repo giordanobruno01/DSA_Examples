@@ -1,6 +1,30 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <h1>Queue</h1>
+
+<div id="queue">
+  <h4>Passengers get ready to board</h4>
+  <table>
+    <tr>
+      {% for item in passagerList %}
+      <td>{{ item }}</td>
+      {% endfor%}
+    </tr>
+  </table>
+</div>
+
+<div id="add">
+  <form action="/queue" method="post">
+    <input type="text" name="name" placeholder="name" />
+    <input type="text" name="origin" placeholder="origin">
+    <input type="text" name="destination" placeholder="destination">
+    <input type="text" name="weight" placeholder="weight">
+    <input type="submit" value="Check-in" />
+  </form>
+</div>
+<div id="remove">
+  <form action="" method="post">
+    <input type="submit" value="Check-out" />
+  </form>
+</div>
 
 {% endblock %}

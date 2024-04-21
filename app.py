@@ -1,11 +1,13 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash, Flask
 import os
 from stackFile import stackClass
+from queueFile import passenger, queue
 from flask_sqlalchemy import SQLAlchemy
 
 main = Flask(__name__) 
 main.config["UPLOAD_FOLDER"] = "files" 
 obj = stackClass()
+queueObj = queue(10)
 @main.route("/") 
 def index():
     return render_template("index.html") 
@@ -20,11 +22,18 @@ def linkedList_post():
 
 @main.route("/queue") 
 def queue():
+    
     return render_template("queue.html")
 
 @main.route("/queue" , methods = ["POST" ])
 def queue_post():
-    return url_for("queue")
+    name = request.form.get("name")
+    origin = request.form.get("origin")
+    destination = request.form.get("destination")
+    weight = request.form.get("weight")
+    pasgr = passenger(name=name, origin=origin, destination=destination, weight=weight)
+    queueObj.enqueue(pasgr)
+    return render_template("queue.html", passagerList = queueObj.passengerList)
 
 @main.route("/stack") 
 def stack():
