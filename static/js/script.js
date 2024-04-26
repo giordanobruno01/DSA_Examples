@@ -12,5 +12,17 @@ function showDiv(opt) {
     }
   }
 }
+function checkout() {
+  v = new XMLHttpRequest();
+  v.open("POST", "/checkout", true);
+  v.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  abc = "123";
+  v.send("id=" + abc);
+  v.onload = function () {
+    if (v.status === 200) {
+      window.location.reload();
+    }
+  };
+}
 
 

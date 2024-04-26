@@ -31,9 +31,19 @@ def queue_post():
     origin = request.form.get("origin")
     destination = request.form.get("destination")
     weight = request.form.get("weight")
-    pasgr = passenger(name=name, origin=origin, destination=destination, weight=weight)
-    message = queueObj.enqueue(pasgr)
-    return render_template("queue.html", passagerList = queueObj.passengerList, message = message)
+    if origin == None:
+        pass
+    else:
+        pasgr = passenger(name=name, origin=origin, destination=destination, weight=weight)
+        message = queueObj.enqueue(pasgr)
+        return render_template("queue.html", passagerList = queueObj.passengerList, message = message)
+    return redirect(url_for("queue"))
+
+@main.route("/checkout" , methods = ["POST" ])
+def checkout():
+    if queueObj.isEmpty() == False:
+       queueObj.dequeue()
+    return 1
 
 @main.route("/stack") 
 def stack():

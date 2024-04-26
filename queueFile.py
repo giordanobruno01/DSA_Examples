@@ -25,10 +25,19 @@ class queue:
         else:
             return False
         
+    def isEmpty(self):
+        if len(self.passengerList) ==0:
+            return True
+        else:
+            return False
+        
     def enqueue(self, list):
         if self.isFull() ==False:
             self.passengerList.append(list)
             return "passenger added"
         else:
             return "queue is full, remove a passenger"
+        
+    def dequeue(self):
+        self.passengerList.pop(0)
 
