@@ -90,7 +90,7 @@ def stack_post():
             
         obj.processor(code, line)
         line +=1 
-         
+           
 
     if len(obj.stack)!=0 and obj.display()=="No error found":
         return render_template("stack.html", text = f"This bracket '{obj.stack[obj.top][0]}' at line {obj.stack[obj.top][2]} with the code  '{obj.stack[obj.top][1]}' is not being closed correctly")
