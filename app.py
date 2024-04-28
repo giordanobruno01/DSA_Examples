@@ -10,7 +10,10 @@ main.config["UPLOAD_FOLDER"] = "files"
 main.config["SECRET_KEY"] = "HELLO"
 obj = stackClass()
 queueObj = queue(5)
+<<<<<<< HEAD
 
+=======
+>>>>>>> e809f82926458d35def24843cabd8429e40f3251
 message = ""
 @main.route("/") 
 def index():
@@ -87,7 +90,7 @@ def stack_post():
             
         obj.processor(code, line)
         line +=1 
-        
+         
 
     if len(obj.stack)!=0 and obj.display()=="No error found":
         return render_template("stack.html", text = f"This bracket '{obj.stack[obj.top][0]}' at line {obj.stack[obj.top][2]} with the code  '{obj.stack[obj.top][1]}' is not being closed correctly")

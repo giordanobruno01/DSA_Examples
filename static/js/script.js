@@ -25,6 +25,7 @@ function checkout() {
 setTimeout(function () {
   document.getElementById("message").style.display = "none";
 }, 2000);
+<<<<<<< HEAD
 
 function add() {
   v = new XMLHttpRequest();
@@ -38,3 +39,5 @@ function add() {
     }
   };
 }
+=======
+>>>>>>> e809f82926458d35def24843cabd8429e40f3251
