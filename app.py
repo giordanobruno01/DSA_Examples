@@ -6,8 +6,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 main = Flask(__name__) 
 main.config["UPLOAD_FOLDER"] = "files" 
+main.config["SECRET_KEY"] = "HELLO"
 obj = stackClass()
-queueObj = queue(10)
+queueObj = queue(5)
+message = ""
 @main.route("/") 
 def index():
     return render_template("index.html") 
@@ -15,19 +17,22 @@ def index():
 @main.route("/linkedlist")  
 def linkedList(): 
     return render_template("linkedlist.html")
-
+ 
 @main.route("/linkedlist" , methods = ["POST"])
 def linkedList_post():
-    return url_for("linkedList")
+    return url_for("linkedList") 
 
 @main.route("/queue") 
 def queue():
-    
-    return render_template("queue.html")
+    global message
+    if message != "":
+        flash(message) 
+    return render_template("queue.html", passagerList = queueObj.passengerList)
 
 @main.route("/queue" , methods = ["POST" ])
-def queue_post():
-    name = request.form.get("name")
+def queue_post(): 
+    global message
+    name = request.form.get("name") 
     origin = request.form.get("origin")
     destination = request.form.get("destination")
     weight = request.form.get("weight")
@@ -36,16 +41,16 @@ def queue_post():
     else:
         pasgr = passenger(name=name, origin=origin, destination=destination, weight=weight)
         message = queueObj.enqueue(pasgr)
-        return render_template("queue.html", passagerList = queueObj.passengerList, message = message)
+        
     return redirect(url_for("queue"))
 
 @main.route("/checkout" , methods = ["POST" ])
 def checkout():
-    if queueObj.isEmpty() == False:
-       queueObj.dequeue()
+    global message
+    message = queueObj.dequeue()
     return 1
 
-@main.route("/stack") 
+@main.route("/stack")  
 def stack():
     return render_template("stack.html" , text = "reload")
 
@@ -59,7 +64,7 @@ def stack_post():
     line = 1
     while obj.display() == "No error found":
         code = j.readline()
-        if code == '': 
+        if code == '':  
             break
         if "//" in code:
             code = code.split("//")[0]
@@ -76,7 +81,7 @@ def stack_post():
         elif multiline == True and "*/" in code:
             multiline = False
             code = code.split("/*")[1]
-
+ 
             
         obj.processor(code, line)
         line +=1
