@@ -25,8 +25,24 @@ class queue:
         else:
             return False
         
+    def isEmpty(self):
+        if len(self.passengerList) ==0:
+            return True
+        else:
+            return False
+        
     def enqueue(self, list):
         if self.isFull() ==False:
-            obj = passenger
-            self.passengerList
+            self.passengerList.append(list)
+            return "Passenger added"
+        else:
+            return "Queue is full, check a passenger out"
+        
+    def dequeue(self):
+        
+        if self.isEmpty():
+            return "No one to check out"
+        name = self.passengerList[0].getName()
+        self.passengerList.pop(0)
+        return f"{name} checked out" 
 

@@ -2,6 +2,25 @@
 
 {% block content %}
 <h1>LinkedList</h1>
+<div id="listForm">
+    <form action="" method="post">
+        <button id="add" onclick="add()">Add</button>
+        <input type="text" name="add" id="add"><br>
+        <button id="addbefore">Add Before</button>
+        <input type="text" name="addbefore" id="addbefore">
+        <select name="list" id="list">
+            {% for i in listItem %}
+            <option value="{{i}}">{{i}}</option>
+            {% endfor %}
+        </select> 
+
+    </form>
+
+</div >
+
+<div id="list">
+
+</div>
 
 
 {% endblock %}
