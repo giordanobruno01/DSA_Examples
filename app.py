@@ -5,15 +5,12 @@ from queueFile import passenger, queue
 from linkedFile import item, linkedList
 from flask_sqlalchemy import SQLAlchemy
 
-main = Flask(__name__) 
+main = Flask(__name__)  
 main.config["UPLOAD_FOLDER"] = "files" 
 main.config["SECRET_KEY"] = "HELLO"
 obj = stackClass()
 queueObj = queue(5)
-<<<<<<< HEAD
 
-=======
->>>>>>> e809f82926458d35def24843cabd8429e40f3251
 message = ""
 @main.route("/") 
 def index():
