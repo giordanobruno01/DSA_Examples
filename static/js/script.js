@@ -30,8 +30,8 @@ function add() {
   v = new XMLHttpRequest();
   v.open("POST", "/add", true);
   v.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  abc = "123";
-  v.send("id=" + abc);
+  add = "123";
+  v.send("id=" + add);
   v.onload = function () {
     if (v.status === 200) {
       window.location.reload();

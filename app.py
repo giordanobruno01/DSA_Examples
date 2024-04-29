@@ -11,14 +11,27 @@ main.config["SECRET_KEY"] = "HELLO"
 obj = stackClass()
 queueObj = queue(5)
 
-message = ""
+message = ""   
 @main.route("/") 
 def index():
     return render_template("index.html") 
 
 @main.route("/linkedlist")  
 def linkedList(): 
-    return render_template("linkedlist.html")
+    obj1 = item()
+    obj1.name = request.form.get("add")
+    obj2 = item()
+    obj2.name = request.form.get("name")
+    obj3 = item()  
+    obj3.name = "namehere3" 
+    lists = [obj2, obj1, obj3]
+    
+    return render_template("linkedlist.html", listItem = lists)
+@main.route("/add", methods = ["POST"]) 
+def Add():
+    abcd = request.form["add"]
+    
+    return abcd 
  
 @main.route("/linkedlist" , methods = ["POST"])
 def linkedList_post():
@@ -57,7 +70,7 @@ def stack():
     return render_template("stack.html" , text = "reload")
 
 @main.route("/stack" , methods = ["POST", "get"])
-def stack_post():
+def stack_post(): 
 
     javaFile = request.files["javaFile"]
     javaFile.save(os.path.join(main.config['UPLOAD_FOLDER'],javaFile.filename))
@@ -95,18 +108,6 @@ def stack_post():
         return render_template("stack.html", text = obj.display())
     
     # return url_for("stack", text = javaFile.read())
-@main.route("/linkList")  
-def linkList():
-    obj1 = item()
-    obj1.name = "namehere"
-    obj2 = item()
-    obj2.name = "namehere2"
-    obj3 = item() 
-    obj3.name = "namehere3" 
-    lists = [obj2, obj1, obj3]
-    names = ["hi", "hi2", "hi3"]
-    return render_template("linkedlist.html", listItem = names)
-
 
 
 if __name__ == "__main__": 
