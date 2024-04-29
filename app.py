@@ -107,11 +107,6 @@ def linkList():
     names = ["hi", "hi2", "hi3"]
     return render_template("linkedlist.html", listItem = names)
 
-@main.route("/linkList", methods = ["POST"])  
-def linkList_post():
-    # request.form.get("name")
-    pass
-    # return render_template("linkedlist.html")
 
 
 if __name__ == "__main__": 
