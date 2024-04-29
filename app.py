@@ -5,7 +5,7 @@ from queueFile import passenger, queue
 from linkedFile import item, linkedList
 from flask_sqlalchemy import SQLAlchemy
 
-main = Flask(__name__)  
+main = Flask(__name__) 
 main.config["UPLOAD_FOLDER"] = "files" 
 main.config["SECRET_KEY"] = "HELLO"
 obj = stackClass()
@@ -46,7 +46,7 @@ def queue_post():
         
     return redirect(url_for("queue"))
 
-@main.route("/checkout" , methods = ["POST" ])
+@main.route("/checkout" , methods = ["POST" ]) 
 def checkout():
     global message
     message = queueObj.dequeue()
@@ -67,7 +67,7 @@ def stack_post():
     while obj.display() == "No error found":
         code = j.readline()
         if code == '':  
-            break
+            break 
         if "//" in code:
             code = code.split("//")[0]
 
