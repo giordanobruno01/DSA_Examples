@@ -27,16 +27,17 @@ def linkedList():
     lists = [obj2, obj1, obj3]
     
     return render_template("linkedlist.html", listItem = lists)
+
+@main.route("/linkedlist" , methods = ["POST"])
+def linkedList_post():
+    return url_for("linkedList") 
+
 @main.route("/add", methods = ["POST"]) 
 def Add():
     abcd = request.form["add"]
     
     return abcd 
  
-@main.route("/linkedlist" , methods = ["POST"])
-def linkedList_post():
-    return url_for("linkedList") 
-
 @main.route("/queue") 
 def queue():
     global message
