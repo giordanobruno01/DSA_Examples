@@ -9,35 +9,26 @@ main = Flask(__name__)
 main.config["UPLOAD_FOLDER"] = "files" 
 main.config["SECRET_KEY"] = "HELLO"
 obj = stackClass()
-queueObj = queue(5)
+queueObj = queue(5)  
 
 message = ""   
 @main.route("/") 
 def index():
     return render_template("index.html") 
 
-@main.route("/linkedlist")  
-def linkedList(): 
-    obj1 = item()
-    obj1.name = request.form.get("add")
-    obj2 = item()
-    obj2.name = request.form.get("name")
-    obj3 = item()  
-    obj3.name = "namehere3" 
-    lists = [obj2, obj1, obj3]
+@main.route("/linkedlist")   
+def linkedList():  
+    obj1 = item("1")
+    obj2 = item("2")
+    obj3 = item("3")  
+    lists = [obj2, obj1, obj3] 
     
-    return render_template("linkedlist.html", listItem = lists)
+    return render_template("linkedlist.html", listItem = lists, lenItem = len(lists))
 
 @main.route("/linkedlist" , methods = ["POST"])
 def linkedList_post():
     return url_for("linkedList") 
 
-@main.route("/add", methods = ["POST"]) 
-def Add():
-    abcd = request.form["add"]
-    
-    return abcd 
- 
 @main.route("/queue") 
 def queue():
     global message

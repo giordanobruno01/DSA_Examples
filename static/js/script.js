@@ -38,3 +38,10 @@ function add() {
     }
   };
 }
+function changeBox() {
+  let opt = document.getElementById("list").value;
+  if (opt == "add") {
+    document.getElementById("textInput").style.display = "none";
+  }
+  
+}

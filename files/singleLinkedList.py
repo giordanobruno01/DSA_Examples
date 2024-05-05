@@ -12,7 +12,10 @@ currentItem = head
 obj2 = Item("holla")
 currentItem.next = obj2 #this line is linking to next 
 currentItem = currentItem.next #this line is setting the current from previous to the new item
-
+cat = "cat name"
+catCopy = cat
+catCopy += " plus"
+print(catCopy)
 obj3 = Item("namaste")
 currentItem.next = obj3
 currentItem = obj3

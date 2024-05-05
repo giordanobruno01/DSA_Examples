@@ -1,21 +1,34 @@
 {% extends "base.html" %} {% block content %}
 <h1>LinkedList</h1>
-<div id="listForm">
-  <form  method="post">
-    <button id="add" onclick="add()">Add</button>
-    <input type="text" name="add" id="add" />
-    <br />
 
-    <button id="addbefore">Add Before</button>
-    <input type="text" name="addbefore" id="addbefore" />
-    <select name="list" id="list">
+<div id="listForm">
+  <form action="/linkedlist" method="post">
+    <input type="text" name="textInput" id="textInput" />
+    <select name="choice" onchange="changeBox()" id="list">
+      <option value=""></option>
+      <option value="add">Add</option>
+      {% if lenItem >= 1 %}
+      
+      <option value="addbefore">Add Before</option>
+      <option value="addafter">Add After</option>
+      <option value="delete">Delete Last</option>
+      <option value="deleteitem">Delete Item</option>
+      {% endif %}
+    </select>
+
+    <select name="listItem" id="listItem">
+      <option value=""></option>
       {% for i in listItem %}
-      <option value="{{ i.name }}">{{ i.name }}</option>
+      <option value="{{ i.name }}" oninput="changeBox()">{{ i.name }}</option>
       {% endfor %}
     </select>
+    <input type="submit" value="OK" id="buttonOK" />
   </form>
 </div>
-
-<div id="list"></div>
+<div id="listDisplay">
+  {% for i in listItem %}
+  <p>{{ i.name }}</p>
+  {% endfor %}
+</div>
 
 {% endblock %}

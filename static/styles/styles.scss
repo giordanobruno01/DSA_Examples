@@ -27,7 +27,7 @@ body {
     h4,
     h5,
     h6,
-    table{
+    table {
       margin-left: auto;
       margin-right: auto;
       text-align: center;
@@ -73,13 +73,50 @@ body {
       width: 200px;
       display: inline-flex;
       float: left;
-      input{
+      input {
         width: 100%;
       }
     }
     #remove {
       display: inline-flex;
       float: right;
+    }
+    #listDisplay {
+      float: right;
+      border: 1px solid black;
+      width: 500px;
+    }
+    #listForm {
+      margin-top: 20px;
+      border: 1px solid black;
+      width: 300px;
+      float: left;
+
+      input {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+      }
+      button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+      }
+      select {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+      }
+      #buttonOK {
+       
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 100px;
+      }
     }
   }
 }

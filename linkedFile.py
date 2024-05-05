@@ -1,6 +1,6 @@
 class item:
-    def __init__(self): 
-        self.name = ""
+    def __init__(self,name): 
+        self.name = name
         self.prev = None
         self.next = None
 
@@ -12,5 +12,21 @@ class item:
 
 
 class linkedList:
-    def __init__(self) -> None:
+    
+    def __init__(self):
+        self.head = None
+    
+    def add(self, data):
+        pass
+    
+    def addBefore(self, data, nextData):
+        pass
+    
+    def addAfter(self, data, prevData):
+        pass
+
+    def delete(self):
+        pass
+
+    def deleteData(self, data):
         pass
