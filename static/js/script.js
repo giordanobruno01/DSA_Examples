@@ -41,7 +41,18 @@ function add() {
 function changeBox() {
   let opt = document.getElementById("list").value;
   if (opt == "add") {
+    document.getElementById("listItem").style.display = "none";
+  } else if (opt == "delete") {
     document.getElementById("textInput").style.display = "none";
+    document.getElementById("listItem").style.display = "none";
+  } else if (opt == "deleteitem") {
+    document.getElementById("textInput").style.display = "none";
+    document.getElementById("listItem").style.display = "block";
+  } else if (opt == "") {
+    alert("select something")
+  } else {
+    document.getElementById("textInput").style.display = "block";
+    document.getElementById("listItem").style.display = "block";
   }
   
 }
