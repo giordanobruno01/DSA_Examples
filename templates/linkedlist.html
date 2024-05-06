@@ -3,7 +3,7 @@
 
 <div id="listForm">
   <form action="/linkedlist" method="post">
-    <input type="text" name="textInput" id="textInput" />
+    <input type="text" name="textInput" id="textInput" style="display: none;"/>
     <select name="choice" onchange="changeBox()" id="list">
       <option value=""></option>
       <option value="add">Add</option>
@@ -16,13 +16,13 @@
       {% endif %}
     </select>
 
-    <select name="listItem" id="listItem">
+    <select name="listItem" id="listItem" style="display: none;">
       <option value=""></option>
       {% for i in listItem %}
       <option value="{{ i.name }}" oninput="changeBox()">{{ i.name }}</option>
       {% endfor %}
     </select>
-    <input type="submit" value="OK" id="buttonOK" />
+    <input type="submit" value="OK" id="buttonOK" onclick="validate()" />
   </form>
 </div>
 <div id="listDisplay">

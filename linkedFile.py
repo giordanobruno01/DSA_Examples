@@ -15,6 +15,7 @@ class linkedList:
     
     def __init__(self):
         self.head = None
+        self.message = ""
     
     def add(self, data):
         pass
@@ -30,3 +31,6 @@ class linkedList:
 
     def deleteData(self, data):
         pass
+
+    def getItems(self):
+        return ["ff"]

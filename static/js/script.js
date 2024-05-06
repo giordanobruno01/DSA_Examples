@@ -42,6 +42,7 @@ function changeBox() {
   let opt = document.getElementById("list").value;
   if (opt == "add") {
     document.getElementById("listItem").style.display = "none";
+    document.getElementById("textInput").style.display = "block";
   } else if (opt == "delete") {
     document.getElementById("textInput").style.display = "none";
     document.getElementById("listItem").style.display = "none";
@@ -49,10 +50,16 @@ function changeBox() {
     document.getElementById("textInput").style.display = "none";
     document.getElementById("listItem").style.display = "block";
   } else if (opt == "") {
-    alert("select something")
+    alert("select something");
   } else {
     document.getElementById("textInput").style.display = "block";
     document.getElementById("listItem").style.display = "block";
   }
-  
+}
+function validate() {
+  choice = document.getElementById("textInput").value;
+  if (choice == "") {
+    alert("write something");
+    return
+  }
 }

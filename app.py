@@ -10,23 +10,40 @@ main.config["UPLOAD_FOLDER"] = "files"
 main.config["SECRET_KEY"] = "HELLO"
 obj = stackClass()
 queueObj = queue(5)  
-
-message = ""   
+llObj = linkedList()
+message = ""
+linkMessage = ''   
 @main.route("/") 
 def index():
     return render_template("index.html") 
 
 @main.route("/linkedlist")   
 def linkedList():  
-    obj1 = item("1")
-    obj2 = item("2")
-    obj3 = item("3")  
-    lists = [obj2, obj1, obj3] 
-    
-    return render_template("linkedlist.html", listItem = lists, lenItem = len(lists))
+    lists = llObj.getItems()
+    global linkMessage
+    return render_template("linkedlist.html", listItem = lists, lenItem = len(lists),  linkMessage = linkMessage)
 
 @main.route("/linkedlist" , methods = ["POST"])
 def linkedList_post():
+    textInput = request.form.get("textInput")
+    choice = request.form.get("choice")
+    listItem = request.form.get("listItem")
+    if choice == "add":
+        if textInput == "":
+            llObj.message = "No text input"
+        else:
+            llObj.add(textInput)
+    elif choice == "addbefore" or choice == "addafter":
+        if listItem == "" and textInput == "":
+            llObj.message = "select an option and give an input" 
+        elif textInput == "":
+            llObj.message = "No text input"
+        elif listItem == "":
+            llObj.message = "select an option"
+        else:
+            llObj.add(textInput)
+
+    
     return url_for("linkedList") 
 
 @main.route("/queue") 
