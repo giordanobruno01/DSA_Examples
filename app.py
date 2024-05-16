@@ -28,7 +28,7 @@ def linkedList_post():
     textInput = request.form.get("textInput")
     choice = request.form.get("choice")
     listItem = request.form.get("listItem")
-    if choice == "add":
+    if choice == "add": 
         if textInput == "":
             llObj.message = "No text input"
         else:

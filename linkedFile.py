@@ -19,7 +19,7 @@ class linkedList:
     
     def add(self, data):
         pass
-    
+     
     def addBefore(self, data, nextData):
         pass
     
